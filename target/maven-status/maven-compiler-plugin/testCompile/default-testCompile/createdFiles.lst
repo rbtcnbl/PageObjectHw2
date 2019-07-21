@@ -1,0 +1,5 @@
+core\Init.class
+rgs\DmsForm.class
+rgs\MainPage.class
+rgs\FirstPage.class
+PageObjectTest.class
