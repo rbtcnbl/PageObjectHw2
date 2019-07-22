@@ -1,6 +1,7 @@
 package rgs;
 
 import core.Init;
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -24,12 +25,14 @@ public class MainPage {
     @FindBy(xpath = "//*[text() = 'Введите адрес электронной почты']")
     public WebElement aser;
 
+@Step("Wait to Download")
     public void waitToDownload() {
         WebDriverWait wait = new WebDriverWait(driver, 5, 200);
         wait.until(ExpectedConditions.elementToBeClickable(By.className("modal-dialog")));
     }
+@Step("Find errore")
+    public void findErrore() {
 
-    public void findErrore(){
         Assert.assertTrue(aser.isEnabled());
     }
 

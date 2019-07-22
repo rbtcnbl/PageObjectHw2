@@ -1,5 +1,6 @@
 package rgs;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,20 +20,22 @@ public class DmsForm extends MainPage {
     @FindBy(xpath = "//*[text()='Телефон']/following::span[contains(@class, 'validation')]")
     public WebElement phoneLiine;
 
-
+    @Step("Fill input by Name {name}/{textToFill}")
     public void fillInputByName(String name, String textToFill) {
         String template = "//*[text()='%s']/following::input[1]";
         String fullxpath = String.format(template, name);
         driver.findElement(By.xpath(fullxpath)).sendKeys(textToFill);
     }
 
+    @Step("Fill input Comments {name}/{textToFill}")
     public void fillInputComment(String name, String textToFill) {
         String template = "//*[text()='Комментарии']/following::textarea[1]";
         String fullxpath = String.format(template, name);
         driver.findElement(By.xpath(fullxpath)).sendKeys(textToFill);
     }
 
-    public void fillInputRegion(){
+    @Step("Set Region")
+    public void fillInputRegion() {
         By selectxpath = By.xpath("//select[@name='Region']");
         WebElement element = driver.findElement(selectxpath);
         Select select = new Select(element);
